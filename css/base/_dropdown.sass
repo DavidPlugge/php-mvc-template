@@ -1,0 +1,32 @@
+.dropdown
+  a
+    cursor: pointer
+
+  .dropdown-menu
+    padding: .1em
+    position: absolute
+    background-color: $dropdown-background
+    color: $dropdown-color
+    +hide()
+
+    li
+      float: none
+      display: block
+      a
+        display: block
+        line-height: 3em
+        height: 3em
+        padding: 0 1em
+
+        &:hover
+          background: $dropdown-hover-background
+          color: $dropdown-hover-color
+
+.dropdown.active
+  .dropdown-menu
+    +show()
+
+
+.nav-main .dropdown-menu
+    background: $main-nav-background
+    color: $main-nav-color

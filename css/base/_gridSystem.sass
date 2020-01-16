@@ -1,0 +1,61 @@
+@for $i from 1 through 12
+  .space-#{$i}
+    margin-bottom: #{$i}rem
+
+[class*="grid"]
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+
+  @for $i from 1 through 12
+    &[class*="gap-inner-#{$i}"]
+      grid-gap: #{$i}em
+    &[class*="gap-outer-#{$i}"]
+      padding: #{$i}em
+    &[class*="gap-all-#{$i}"]
+      padding: #{$i}em
+      grid-gap: #{$i}em
+
+  &[class*="auto"]
+    grid-template-columns: none
+    grid-auto-columns: minmax(min-content, 1fr)
+
+  &[class*="center"]
+    justify-items: center
+    align-items: center
+  &[class*="left"]
+    justify-items: start
+  &[class*="right"]
+    justify-items: end
+  &[class*="top"]
+    align-items: start
+  &[class*="bottom"]
+    align-items: end
+
+  > *
+    @media (max-width: $media-width)
+      grid-column: span 12 !important
+
+@for $i from 1 through 12
+  .row-#{$i}
+    grid-row: span #{$i}
+.row-all
+  grid-row: span 1000
+
+@for $i from 1 through 24
+  .col-#{$i}
+    grid-column: span #{$i}
+.col-all
+  grid-column: span 1000
+
+[class*="col"]
+  &[class*="center"]
+    justify-self: center
+    align-self: center
+  &[class*="left"]
+    justify-self: start
+  &[class*="right"]
+    justify-self: end
+  &[class*="top"]
+    align-self: start
+  &[class*="bottom"]
+    align-self: end

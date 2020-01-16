@@ -1,0 +1,87 @@
+.nav
+  background: $nav-item-hover-background
+  color: $nav-item-hover-color
+  *
+    z-index: 100
+
+  a
+    +transition(color 200ms, background-color 200ms)
+  
+.nav-main
+  width: 100%
+  height: min-content
+  background: $main-nav-background
+  color: $main-nav-color
+
+  @media (max-width: $media-width)
+    &.active
+      .nav-toggle
+        border-bottom: 2px solid lighten($main-nav-background, 20%)
+      > ul
+        +show()
+
+  .nav-toggle
+    display: none
+    font-size: 1.5rem
+    padding: 1em
+    background: $main-nav-background
+    color: $main-nav-color
+    position: relative
+    .menu-icon
+      position: absolute
+      +transform(translate(-50%, -50%))
+      top: 50%
+      right: 5%
+
+    &:hover
+      background: $main-nav-item-hover-background
+      color: $main-nav-item-hover-color
+
+    @media (max-width: $media-width)
+      display: block
+
+  > ul
+    overflow: hidden
+    text-align: center
+    width: 80%
+    margin: 0 auto
+
+    @media (max-width: $media-width)
+      +hide()
+      overflow: visible
+      width: 100%
+
+
+    li
+      float: left
+
+      @media (max-width: $media-width)
+        display: block !important
+        float: none !important
+
+      a
+        white-space: nowrap
+        cursor: pointer
+        display: block
+        height: 5em
+        line-height: 5em
+        padding: 0 2em !important
+
+        &:hover
+          background: $main-nav-item-hover-background
+          color: $main-nav-item-hover-color
+
+  .nav-main-user
+    float: right
+    a > *
+      margin-left: 1em
+    .user-sign-out
+      margin: 0 .5em 0 0
+
+  .dropdown
+    @media (max-width: $media-width)
+      .dropdown-menu
+        position: relative
+        padding: 0
+        border-top: 1px solid lighten($main-nav-background, 20%)
+        border-bottom: 1px solid lighten($main-nav-background, 20%)

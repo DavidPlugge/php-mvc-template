@@ -1,0 +1,190 @@
+[role="button"]
+  font-size: 1.2em
+  margin: 1em 2em
+  padding: .3em
+  border: 3px solid #4af
+  border-radius: .3em
+  background: #ffffff
+  cursor: pointer
+  outline: none
+
+[class*="form-group"]
+  padding: 1em
+  margin: 1em
+  width: max-content
+
+  .error-list
+    padding: .3em
+    background-color: $form-error-background
+    color: $form-error-text-color
+
+input[type="submit"]
+  font-size: 1.2em
+  margin: 1em 2em
+  padding: .3em
+  border: 3px solid #4af
+  border-radius: .3em
+  background: #ffffff
+  cursor: pointer
+  outline: none
+
+
+.form-group-text,
+.form-group-password
+  padding: 2em 0 .5em 0
+  position: relative
+  background-color: $form-text-background
+  color: $form-text-text-color
+
+  &.valid label
+    top: 1em
+    font-size: .85em
+
+  label
+    pointer-events: none
+    position: absolute
+    top: 2.5em
+    +transition(top 300ms, font-size 300ms)
+    left: 1.5rem
+    line-height: 1em
+    color: #aaaaaa
+    font:
+      family: "Georgia", "Times", "Times New Roman", serif
+      style: italic
+    
+  input
+    font-size: 1.5rem
+    border: none
+    border-bottom: $form-text-border
+    background: $form-text-background
+    outline: none
+    color: inherit
+
+    &:focus ~ label
+      top: 1em
+      font-size: .85em
+      
+.form-group-checkbox
+  padding: .3em
+  margin: .7em
+  background-color: $form-checkbox-background
+  color: $form-checkbox-text-color
+  label
+    cursor: pointer
+    input
+      display: none
+      
+      &:not(:checked):not(:disabled) ~ .unchecked
+        display: inline-block
+      &:checked:not(:disabled) ~ .checked
+        display: inline-block
+      &:disabled:not(:checked) ~ .disabled
+        display: inline-block
+      &:disabled:checked ~ .checked
+        display: inline-block
+        color: $form-checkbox-color-disabled
+      
+    
+    .unchecked, .checked, .disabled
+      display: none
+    .unchecked
+      color: $form-checkbox-color-unchecked
+    .checked
+      color: $form-checkbox-color-checked
+    .disabled
+      color: $form-checkbox-color-disabled
+
+.form-group-switch
+  background-color: $form-switch-background
+  color: $form-switch-text-color
+  label
+    padding: 0 .5em
+    line-height: 1.5rem
+    float: left
+  input
+    cursor: pointer
+    float: left
+    font-size: 1.5rem
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    +size(2em, 1em)
+    outline: none
+    background: $form-switch-color-unchecked
+    +prefixer(border-radius, 1em)
+    +transition(background-color 100ms)
+    position: relative
+    +prefixer(box-shadow, inset 0 0 .1em rgba(0,0,0,.5))
+
+    &:checked
+      background-color: $form-switch-color-checked
+    &:after
+      content: ''
+      +size(1em)
+      background-color: $form-switch-dot-color
+      +prefixer(border-radius, 1em)
+      position: absolute
+      +transform(scale(0.7))
+      left: 0
+      +transition(left 100ms)
+      +prefixer(box-shadow, 0 0.1em rgba(0,0,0,.5))
+    &:checked::after
+      left: 1em
+    &:disabled
+      background-color: $form-switch-color-disabled
+      &:checked
+        background-color: $form-switch-color-disabled-checked
+        &::after
+          background-color: $form-switch-dot-color-disabled-checked
+
+
+
+.form-group-radio
+  label
+    cursor: pointer
+    input
+      display: none
+      
+      &:not(:checked) ~ .unchecked
+        display: inline-block
+      &:checked ~ .checked
+        display: inline-block
+      &:disabled
+        ~ .checked,
+        ~ .unchecked
+          display: none
+        ~ .disabled
+          display: inline-block
+      
+    
+    .unchecked, .checked, .disabled
+      display: none
+    .unchecked
+      color: #777777
+    .checked
+      color: #4af
+    .disabled
+      color: #aaaaaa
+
+.form-group-file
+  label
+    font-weight: 700
+    background: $form-file-background
+    color: $form-file-color
+    padding: .7em
+    cursor: pointer
+
+    .upload-file-icon
+      margin: 0 .3em 0 0
+
+    &.valid
+      background: $form-file-background-file
+      color: $form-file-color-file
+
+  input
+    opacity: 0
+    width: 0
+    height: 0
+    overflow: hidden
+    position: absolute
+    z-index: -10000

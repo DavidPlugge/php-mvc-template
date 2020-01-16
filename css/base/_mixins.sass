@@ -1,0 +1,47 @@
+@mixin prefixer($property, $value)
+  #{"-webkit-" + $property}: $value
+  #{"-moz-" + $property}: $value
+  #{"-ms-" + $property}: $value
+  #{"-o-" + $property}: $value
+  #{$property}: $value
+
+@mixin keyframes($name)
+  @keyframes #{$name}
+    @content
+  @-o-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-webkit-keyframes #{$name}
+    @content
+
+@mixin size($width, $height: $width)
+  height: $height
+  width: $width
+
+@mixin transform ($property)
+  +prefixer(transform, $property)
+
+@mixin transition($propertys...)
+  $property: nth($propertys, 1)
+  $propertys: remove($propertys, 1)
+  @if length($propertys) >= 1
+    @each $p in $propertys
+      $property: $property + "," + $p
+  +prefixer(transition, #{$property})
+
+@mixin position($property, $position)
+  position: $property
+  @if $position
+    top: nth($position, 1)
+    @if length($position) > 1 and nth($position, 2) != null
+      right: nth($position, 2)
+    @if length($position) > 2 and nth($position, 3) != null
+      bottom: nth($position, 3)
+    @if length($position) > 3 and nth($position, 4) != null
+      left: nth($position, 4)
+
+@mixin hide()
+  display: none
+@mixin show($display: block)
+  display: $display

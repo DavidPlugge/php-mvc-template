@@ -1,0 +1,17 @@
+[class*="items"]
+  display: grid
+
+  &[class*="center"]
+    justify-items: center
+    align-items: center
+  &[class*="left"]
+    justify-items: start
+  &[class*="right"]
+    justify-items: end
+  &[class*="top"]
+    align-items: start
+  &[class*="bottom"]
+    align-items: end
+
+.center-text
+  text-align: center

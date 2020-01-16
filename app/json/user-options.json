@@ -1,0 +1,9 @@
+{
+  "Profile" : {
+    "Profile Settings" : "profile/settings"
+  },
+  "Register" : {
+    "Log In" : "register/login",
+    "Log Out" : "register/logout"
+  }
+}

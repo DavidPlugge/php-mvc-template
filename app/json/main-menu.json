@@ -1,0 +1,8 @@
+{
+  "Home" : "home",
+  "Games" : {
+    "Skribbl" : "skribbl",
+    "CardsAgainstHumanity" : "cardsAgainstHumanity"
+  },
+  "Server" : "server"
+}

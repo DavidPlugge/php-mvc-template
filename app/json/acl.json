@@ -1,0 +1,23 @@
+{
+  "Guest" : {
+    "denied" : {},
+    "Home" : ["*"],
+    "Register" : ["login", "register"]
+  },
+  "LoggedIn" : {
+    "denied" : {
+      "Register" : ["login", "register"]
+    },
+    "Register" : ["logout"],
+    "Profile" : ["*"],
+    "Skribbl" : ["*"],
+    "Server" : ["*"]
+  },
+  "Silver" : {
+    "denied" : {},
+    "CardsAgainstHumanity" : ["*"]
+  },
+  "Gold" : {
+    "denied" : {}
+  }
+}
